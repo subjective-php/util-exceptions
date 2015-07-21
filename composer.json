@@ -1,0 +1,27 @@
+{
+    "name": "chadicus/util-exceptions",
+    "description": "Collection of exception utilities",
+    "keywords": ["exception", "util"],
+    "authors": [
+        {
+            "name": "Chad Gray",
+            "email": "chadwickgray@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "~5.4 || ~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "squizlabs/php_codesniffer": "~2.0",
+        "satooshi/php-coveralls": "~0.6.1"
+    },
+    "autoload": {
+        "psr-4": { "Chadicus\\Util\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "ChadicusTest\\Util\\": "tests/" }
+    }
+}
