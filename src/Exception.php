@@ -79,6 +79,8 @@ class Exception
     final public static function fromLastError()
     {
         $error = error_get_last();
-        return new \ErrorException($error['message'], 0, $error['type'], $error['file'], $error['line']);
+        if ($error !== null) {
+            return new \ErrorException($error['message'], 0, $error['type'], $error['file'], $error['line']);
+        }
     }
 }

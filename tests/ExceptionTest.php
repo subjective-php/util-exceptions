@@ -196,4 +196,20 @@ final class ExceptionTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(__FILE__, $exception->getFile());
         error_reporting($restoreLevel);
     }
+
+    /**
+     * Verifies behavior of fromLastError() when no error was triggered
+     *
+     * @test
+     * @covers ::fromLastError
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     *
+     * @return void
+     */
+    public function fromLastErrorNoError()
+    {
+        $this->assertNull(Exception::fromLastError());
+    }
+
 }
