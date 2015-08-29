@@ -5,7 +5,7 @@
 [![Latest Stable Version](http://img.shields.io/packagist/v/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
 [![Total Downloads](http://img.shields.io/packagist/dt/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
 [![License](http://img.shields.io/packagist/l/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
-[![Documentation](https://img.shields.io/badge/reference-phpdoc-blue.svg?style=flat)](http://chadicus.github.io/util-exceptions-php)
+[![Documentation](https://img.shields.io/badge/reference-phpdoc-blue.svg?style=flat)](http://pholio.herokuapp.com/util-exceptions)
 
 A collection of utility classes to work with PHP Exceptions
 
