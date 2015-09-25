@@ -1,7 +1,7 @@
 # Chadicus\Util\Exception
 [![Build Status](https://travis-ci.org/chadicus/util-exceptions-php.svg?branch=master)](https://travis-ci.org/chadicus/util-exceptions-php)
 [![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/chadicus/util-exceptions-php.svg?style=flat)](https://scrutinizer-ci.com/g/chadicus/util-exceptions-php/)
-[![Code Coverage](http://img.shields.io/coveralls/chadicus/util-exceptions-php.svg?style=flat)](https://coveralls.io/r/chadicus/util-exceptions-php)
+[![Coverage Status](https://coveralls.io/repos/chadicus/util-exceptions-php/badge.svg?branch=master&service=github)](https://coveralls.io/github/chadicus/util-exceptions-php?branch=master)
 
 [![Latest Stable Version](http://img.shields.io/packagist/v/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
 [![Total Downloads](http://img.shields.io/packagist/dt/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
