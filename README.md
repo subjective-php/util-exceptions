@@ -1,5 +1,5 @@
 # Chadicus\Util\Exception
-[![Build Status](http://img.shields.io/travis/chadicus/util-exceptions-php.svg?style=flat)](https://travis-ci.org/chadicus/util-exceptions-php)
+[![Build Status](https://travis-ci.org/chadicus/util-exceptions-php.svg?branch=master)](https://travis-ci.org/chadicus/util-exceptions-php)
 [![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/chadicus/util-exceptions-php.svg?style=flat)](https://scrutinizer-ci.com/g/chadicus/util-exceptions-php/)
 [![Code Coverage](http://img.shields.io/coveralls/chadicus/util-exceptions-php.svg?style=flat)](https://coveralls.io/r/chadicus/util-exceptions-php)
 
