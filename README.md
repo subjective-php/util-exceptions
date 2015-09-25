@@ -23,7 +23,7 @@ To add the library as a local, per-project dependency use [Composer](http://getc
 ```json
 {
     "require": {
-        "chadicus/util-exceptions": "dev-master"
+        "chadicus/util-exceptions": "~1.0"
     }
 }
 ```
