@@ -2,9 +2,11 @@
 [![Build Status](http://img.shields.io/travis/chadicus/util-exceptions-php.svg?style=flat)](https://travis-ci.org/chadicus/util-exceptions-php)
 [![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/chadicus/util-exceptions-php.svg?style=flat)](https://scrutinizer-ci.com/g/chadicus/util-exceptions-php/)
 [![Code Coverage](http://img.shields.io/coveralls/chadicus/util-exceptions-php.svg?style=flat)](https://coveralls.io/r/chadicus/util-exceptions-php)
+
 [![Latest Stable Version](http://img.shields.io/packagist/v/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
 [![Total Downloads](http://img.shields.io/packagist/dt/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
 [![License](http://img.shields.io/packagist/l/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
+
 [![Documentation](https://img.shields.io/badge/reference-phpdoc-blue.svg?style=flat)](http://pholio.herokuapp.com/chadicus/util-exceptions)
 
 A collection of utility classes to work with PHP Exceptions
