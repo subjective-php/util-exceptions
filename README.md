@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/chadicus/util-exceptions-php.svg?branch=master)](https://travis-ci.org/chadicus/util-exceptions-php)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/chadicus/util-exceptions-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/chadicus/util-exceptions-php/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/chadicus/util-exceptions-php/badge.svg?branch=master)](https://coveralls.io/github/chadicus/util-exceptions-php?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/5605dd3d5a262f001e000097/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5605dd3d5a262f001e000097)
+[![Dependency Status](https://www.versioneye.com/user/projects/5605dd5b5a262f001a000067/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5605dd5b5a262f001a000067)
 
 [![Latest Stable Version](https://poser.pugx.org/chadicus/util-exceptions/v/stable)](https://packagist.org/packages/chadicus/util-exceptions)
 [![Latest Unstable Version](https://poser.pugx.org/chadicus/util-exceptions/v/unstable)](https://packagist.org/packages/chadicus/util-exceptions)
