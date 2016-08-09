@@ -1,13 +1,17 @@
 # Chadicus\Util\Exception
+
 [![Build Status](https://travis-ci.org/chadicus/util-exceptions-php.svg?branch=master)](https://travis-ci.org/chadicus/util-exceptions-php)
-[![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/chadicus/util-exceptions-php.svg?style=flat)](https://scrutinizer-ci.com/g/chadicus/util-exceptions-php/)
-[![Coverage Status](https://coveralls.io/repos/chadicus/util-exceptions-php/badge.svg?branch=master&service=github)](https://coveralls.io/github/chadicus/util-exceptions-php?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/chadicus/util-exceptions-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/chadicus/util-exceptions-php/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/chadicus/util-exceptions-php/badge.svg?branch=master)](https://coveralls.io/github/chadicus/util-exceptions-php?branch=master)
+[![Dependency Status](https://www.versioneye.com/user/projects/5605dd3d5a262f001e000097/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5605dd3d5a262f001e000097)
 
-[![Latest Stable Version](http://img.shields.io/packagist/v/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
-[![Total Downloads](http://img.shields.io/packagist/dt/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
-[![License](http://img.shields.io/packagist/l/chadicus/util-exceptions.svg?style=flat)](https://packagist.org/packages/chadicus/util-exceptions)
+[![Latest Stable Version](https://poser.pugx.org/chadicus/util-exceptions/v/stable)](https://packagist.org/packages/chadicus/util-exceptions)
+[![Latest Unstable Version](https://poser.pugx.org/chadicus/util-exceptions/v/unstable)](https://packagist.org/packages/chadicus/util-exceptions)
+[![License](https://poser.pugx.org/chadicus/util-exceptions/license)](https://packagist.org/packages/chadicus/util-exceptions)
 
-[![Dependency Status](https://www.versioneye.com/user/projects/5605dd3d5a262f001e000097/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5605dd3d5a262f001e000097)
+[![Total Downloads](https://poser.pugx.org/chadicus/util-exceptions/downloads)](https://packagist.org/packages/chadicus/util-exceptions)
+[![Daily Downloads](https://poser.pugx.org/chadicus/util-exceptions/d/daily)](https://packagist.org/packages/chadicus/util-exceptions)
+[![Monthly Downloads](https://poser.pugx.org/chadicus/util-exceptions/d/monthly)](https://packagist.org/packages/chadicus/util-exceptions)
 
 [![Documentation](https://img.shields.io/badge/reference-phpdoc-blue.svg?style=flat)](http://pholiophp.org/chadicus/util-exceptions)
 
@@ -15,7 +19,7 @@ A collection of utility classes to work with PHP Exceptions
 
 ## Requirements
 
-Chadicus\Util\Exception requires PHP 5.4 (or later).
+Chadicus\Util\Exception requires PHP 5.6 (or later).
 
 ##Composer
 To add the library as a local, per-project dependency use [Composer](http://getcomposer.org)! Simply add a dependency on `chadicus/util-exceptions` to your project's `composer.json` file such as:
@@ -23,7 +27,7 @@ To add the library as a local, per-project dependency use [Composer](http://getc
 ```json
 {
     "require": {
-        "chadicus/util-exceptions": "~1.0"
+        "chadicus/util-exceptions": "~2.0"
     }
 }
 ```
