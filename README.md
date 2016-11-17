@@ -24,12 +24,8 @@ Chadicus\Util\Exception requires PHP 5.6 (or later).
 ##Composer
 To add the library as a local, per-project dependency use [Composer](http://getcomposer.org)! Simply add a dependency on `chadicus/util-exceptions` to your project's `composer.json` file such as:
 
-```json
-{
-    "require": {
-        "chadicus/util-exceptions": "~2.0"
-    }
-}
+```sh
+composer require chadicus/util-exceptions
 ```
 
 ##Contact
