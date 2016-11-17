@@ -4,7 +4,7 @@ namespace Chadicus\Util;
 /**
  * Static utility class for exceptions.
  */
-final class Exception
+abstract class Exception
 {
     /**
      * Returns the Exception that is the root cause of one or more subsequent exceptions.
@@ -13,7 +13,7 @@ final class Exception
      *
      * @return \Exception
      */
-    public static function getBaseException(\Exception $exception)
+    final public static function getBaseException(\Exception $exception)
     {
         while ($exception->getPrevious() !== null) {
             $exception = $exception->getPrevious();
@@ -34,7 +34,7 @@ final class Exception
      *
      * @throws \ErrorException Thrown based on information given in parameters.
      */
-    public static function raise($level, $message, $file = null, $line = null)
+    final public static function raise($level, $message, $file = null, $line = null)
     {
         if (error_reporting() === 0) {
             return false;
@@ -52,7 +52,7 @@ final class Exception
      *
      * @return array
      */
-    public static function toArray(\Exception $exception, $traceAsString = false, $depth = 512)
+    final public static function toArray(\Exception $exception, $traceAsString = false, $depth = 512)
     {
         $result = [
             'type' => get_class($exception),
@@ -76,7 +76,7 @@ final class Exception
      *
      * @return \ErrorException
      */
-    public static function fromLastError()
+    final public static function fromLastError()
     {
         $error = error_get_last();
         if ($error !== null) {
