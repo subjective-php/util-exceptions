@@ -15,7 +15,7 @@ abstract class Exception
      *
      * @return Throwable
      */
-    final public static function getBaseException(Throwable $throwable)
+    final public static function getBaseException(Throwable $throwable) : Throwable
     {
         while ($throwable->getPrevious() !== null) {
             $throwable = $throwable->getPrevious();
@@ -36,7 +36,7 @@ abstract class Exception
      *
      * @throws \ErrorException Thrown based on information given in parameters.
      */
-    final public static function raise($level, $message, $file = null, $line = null)
+    final public static function raise(int $level, string $message, string $file = null, int $line = null)
     {
         if (error_reporting() === 0) {
             return false;
@@ -54,7 +54,7 @@ abstract class Exception
      *
      * @return array
      */
-    final public static function toArray(Throwable $throwable, $traceAsString = false, $depth = 512)
+    final public static function toArray(Throwable $throwable, bool $traceAsString = false, int $depth = 512) : array
     {
         $result = [
             'type' => get_class($throwable),
@@ -76,7 +76,7 @@ abstract class Exception
     /**
      * Creates an ErrorException based on the error from error_get_last().
      *
-     * @return \ErrorException
+     * @return \ErrorException|null
      */
     final public static function fromLastError()
     {
