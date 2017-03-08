@@ -1,6 +1,8 @@
 <?php
 namespace Chadicus\Util;
 
+use Throwable;
+
 /**
  * Static utility class for exceptions.
  */
@@ -9,17 +11,17 @@ abstract class Exception
     /**
      * Returns the Exception that is the root cause of one or more subsequent exceptions.
      *
-     * @param \Exception $exception The exception of which to find a base exception.
+     * @param Throwable $throwable The exception/error of which to find a base exception.
      *
-     * @return \Exception
+     * @return Throwable
      */
-    final public static function getBaseException(\Exception $exception)
+    final public static function getBaseException(Throwable $throwable)
     {
-        while ($exception->getPrevious() !== null) {
-            $exception = $exception->getPrevious();
+        while ($throwable->getPrevious() !== null) {
+            $throwable = $throwable->getPrevious();
         }
 
-        return $exception;
+        return $throwable;
     }
 
     /**
@@ -46,26 +48,26 @@ abstract class Exception
     /**
      * Converts the given Exception to an array.
      *
-     * @param \Exception $exception     The exception to convert.
-     * @param boolean    $traceAsString Flag to return the exception trace as a string or array.
-     * @param integer    $depth         User specified recursion depth.
+     * @param Throwable $throwable     The exception to convert.
+     * @param boolean   $traceAsString Flag to return the exception trace as a string or array.
+     * @param integer   $depth         User specified recursion depth.
      *
      * @return array
      */
-    final public static function toArray(\Exception $exception, $traceAsString = false, $depth = 512)
+    final public static function toArray(Throwable $throwable, $traceAsString = false, $depth = 512)
     {
         $result = [
-            'type' => get_class($exception),
-            'message' => $exception->getMessage(),
-            'code' => $exception->getCode(),
-            'file' => $exception->getFile(),
-            'line' => $exception->getLine(),
-            'trace' => $traceAsString ? $exception->getTraceAsString() : $exception->getTrace(),
+            'type' => get_class($throwable),
+            'message' => $throwable->getMessage(),
+            'code' => $throwable->getCode(),
+            'file' => $throwable->getFile(),
+            'line' => $throwable->getLine(),
+            'trace' => $traceAsString ? $throwable->getTraceAsString() : $throwable->getTrace(),
             'previous' => null,
         ];
 
-        if ($exception->getPrevious() !== null && --$depth) {
-            $result['previous'] = self::toArray($exception->getPrevious(), $traceAsString, $depth);
+        if ($throwable->getPrevious() !== null && --$depth) {
+            $result['previous'] = self::toArray($throwable->getPrevious(), $traceAsString, $depth);
         }
 
         return $result;
