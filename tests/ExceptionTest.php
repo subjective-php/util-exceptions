@@ -2,13 +2,14 @@
 namespace ChadicusTests\Util;
 
 use Chadicus\Util\Exception;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Unit tests for the \Chadicus\Util\Exception class.
  *
  * @coversDefaultClass \Chadicus\Util\Exception
  */
-final class ExceptionTest extends \PHPUnit_Framework_TestCase
+final class ExceptionTest extends TestCase
 {
     /**
      * Verify basic functionality of getBaseException().
