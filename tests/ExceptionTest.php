@@ -2,7 +2,11 @@
 namespace ChadicusTests\Util;
 
 use Chadicus\Util\Exception;
+use ErrorException;
+use Exception as BaseException;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 /**
  * Unit tests for the \Chadicus\Util\Exception class.
@@ -21,9 +25,9 @@ final class ExceptionTest extends TestCase
      */
     public function getBaseException()
     {
-        $a = new \ErrorException('exception a');
-        $b = new \InvalidArgumentException('exception b', 0, $a);
-        $c = new \Exception('exception c', 0, $b);
+        $a = new ErrorException('exception a');
+        $b = new InvalidArgumentException('exception b', 0, $a);
+        $c = new BaseException('exception c', 0, $b);
 
         $this->assertSame($a, Exception::getBaseException($c));
         $this->assertSame($a, Exception::getBaseException($b));
@@ -40,7 +44,7 @@ final class ExceptionTest extends TestCase
      */
     public function getBaseExceptionNoPrevious()
     {
-        $e = new \Exception();
+        $e = new BaseException();
         $this->assertSame($e, Exception::getBaseException($e));
     }
 
@@ -94,7 +98,7 @@ final class ExceptionTest extends TestCase
     public function toArray()
     {
         $expectedLine = __LINE__ + 1;
-        $result = Exception::toArray(new \RuntimeException('a message', 21));
+        $result = Exception::toArray(new RuntimeException('a message', 21));
         $expected = [
             'type' => 'RuntimeException',
             'message' => 'a message',
@@ -118,8 +122,8 @@ final class ExceptionTest extends TestCase
      */
     public function toArrayWithPrevous()
     {
-        $previous = new \Exception('a previous', 33);
-        $exception = new \RuntimeException('a message', 21, $previous);
+        $previous = new BaseException('a previous', 33);
+        $exception = new RuntimeException('a message', 21, $previous);
         $this->assertSame(
             [
                 'type' => 'RuntimeException',
@@ -152,8 +156,8 @@ final class ExceptionTest extends TestCase
      */
     public function toArrayWithDepth()
     {
-        $second = new \Exception('second', 22, new \Exception('first', 11));
-        $third = new \Exception('third', 33, $second);
+        $second = new BaseException('second', 22, new BaseException('first', 11));
+        $third = new BaseException('third', 33, $second);
         $this->assertSame(
             [
                 'type' => get_class($third),
