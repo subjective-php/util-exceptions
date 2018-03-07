@@ -118,27 +118,28 @@ final class ExceptionTest extends TestCase
      */
     public function toArrayWithPrevous()
     {
-        $expectedLine = __LINE__ + 1;
-        $result = Exception::toArray(new \RuntimeException('a message', 21, new \Exception('a previous', 33)));
-        $expected = [
-            'type' => 'RuntimeException',
-            'message' => 'a message',
-            'code' => 21,
-            'file' => __FILE__,
-            'line' => $expectedLine,
-            'trace' => $result['trace'],
-            'previous' => [
-                'type' => 'Exception',
-                'message' => 'a previous',
-                'code' => 33,
-                'file' => __FILE__,
-                'line' => $expectedLine,
-                'trace' => $result['previous']['trace'],
-                'previous' => null,
+        $previous = new \Exception('a previous', 33);
+        $exception = new \RuntimeException('a message', 21, $previous);
+        $this->assertSame(
+            [
+                'type' => 'RuntimeException',
+                'message' => 'a message',
+                'code' => 21,
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine(),
+                'trace' => $exception->getTrace(),
+                'previous' => [
+                    'type' => 'Exception',
+                    'message' => 'a previous',
+                    'code' => 33,
+                    'file' => $previous->getFile(),
+                    'line' => $previous->getLine(),
+                    'trace' => $previous->getTrace(),
+                    'previous' => null,
+                ],
             ],
-        ];
-
-        $this->assertSame($expected, $result);
+            Exception::toArray($exception)
+        );
     }
 
     /**
@@ -151,30 +152,28 @@ final class ExceptionTest extends TestCase
      */
     public function toArrayWithDepth()
     {
-        $first = new \Exception('first', 11);
-        $second = new \Exception('second', 22, $first);
+        $second = new \Exception('second', 22, new \Exception('first', 11));
         $third = new \Exception('third', 33, $second);
-        $result = Exception::toArray($third, false, 2);
-
-        $expected = [
-            'type' => get_class($third),
-            'message' => $third->getMessage(),
-            'code' => $third->getCode(),
-            'file' => $third->getFile(),
-            'line' => $third->getLine(),
-            'trace' => $third->getTrace(),
-            'previous' => [
-                'type' => get_class($second),
-                'message' => $second->getMessage(),
-                'code' => $second->getCode(),
-                'file' => $second->getFile(),
-                'line' => $second->getLine(),
-                'trace' => $second->getTrace(),
-                'previous' => null,
+        $this->assertSame(
+            [
+                'type' => get_class($third),
+                'message' => $third->getMessage(),
+                'code' => $third->getCode(),
+                'file' => $third->getFile(),
+                'line' => $third->getLine(),
+                'trace' => $third->getTrace(),
+                'previous' => [
+                    'type' => get_class($second),
+                    'message' => $second->getMessage(),
+                    'code' => $second->getCode(),
+                    'file' => $second->getFile(),
+                    'line' => $second->getLine(),
+                    'trace' => $second->getTrace(),
+                    'previous' => null,
+                ],
             ],
-        ];
-
-        $this->assertSame($expected, $result);
+            Exception::toArray($third, false, 2)
+        );
     }
 
     /**
