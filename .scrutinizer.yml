@@ -6,6 +6,7 @@ before_commands:
 build:
     tests:
         override:
+            - php-scrutinizer-run
             - phpcs-run --standard=./vendor/chadicus/coding-standard/Chadicus/ruleset.xml
 tools:
     php_analyzer: true
