@@ -2,13 +2,18 @@
 namespace ChadicusTests\Util;
 
 use Chadicus\Util\Exception;
+use ErrorException;
+use Exception as BaseException;
+use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 /**
  * Unit tests for the \Chadicus\Util\Exception class.
  *
  * @coversDefaultClass \Chadicus\Util\Exception
  */
-final class ExceptionTest extends \PHPUnit_Framework_TestCase
+final class ExceptionTest extends TestCase
 {
     /**
      * Verify basic functionality of getBaseException().
@@ -20,9 +25,9 @@ final class ExceptionTest extends \PHPUnit_Framework_TestCase
      */
     public function getBaseException()
     {
-        $a = new \ErrorException('exception a');
-        $b = new \InvalidArgumentException('exception b', 0, $a);
-        $c = new \Exception('exception c', 0, $b);
+        $a = new ErrorException('exception a');
+        $b = new InvalidArgumentException('exception b', 0, $a);
+        $c = new BaseException('exception c', 0, $b);
 
         $this->assertSame($a, Exception::getBaseException($c));
         $this->assertSame($a, Exception::getBaseException($b));
@@ -39,7 +44,7 @@ final class ExceptionTest extends \PHPUnit_Framework_TestCase
      */
     public function getBaseExceptionNoPrevious()
     {
-        $e = new \Exception();
+        $e = new BaseException();
         $this->assertSame($e, Exception::getBaseException($e));
     }
 
@@ -93,7 +98,7 @@ final class ExceptionTest extends \PHPUnit_Framework_TestCase
     public function toArray()
     {
         $expectedLine = __LINE__ + 1;
-        $result = Exception::toArray(new \RuntimeException('a message', 21));
+        $result = Exception::toArray(new RuntimeException('a message', 21));
         $expected = [
             'type' => 'RuntimeException',
             'message' => 'a message',
@@ -117,27 +122,28 @@ final class ExceptionTest extends \PHPUnit_Framework_TestCase
      */
     public function toArrayWithPrevous()
     {
-        $expectedLine = __LINE__ + 1;
-        $result = Exception::toArray(new \RuntimeException('a message', 21, new \Exception('a previous', 33)));
-        $expected = [
-            'type' => 'RuntimeException',
-            'message' => 'a message',
-            'code' => 21,
-            'file' => __FILE__,
-            'line' => $expectedLine,
-            'trace' => $result['trace'],
-            'previous' => [
-                'type' => 'Exception',
-                'message' => 'a previous',
-                'code' => 33,
-                'file' => __FILE__,
-                'line' => $expectedLine,
-                'trace' => $result['previous']['trace'],
-                'previous' => null,
+        $previous = new BaseException('a previous', 33);
+        $exception = new RuntimeException('a message', 21, $previous);
+        $this->assertSame(
+            [
+                'type' => 'RuntimeException',
+                'message' => 'a message',
+                'code' => 21,
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine(),
+                'trace' => $exception->getTrace(),
+                'previous' => [
+                    'type' => 'Exception',
+                    'message' => 'a previous',
+                    'code' => 33,
+                    'file' => $previous->getFile(),
+                    'line' => $previous->getLine(),
+                    'trace' => $previous->getTrace(),
+                    'previous' => null,
+                ],
             ],
-        ];
-
-        $this->assertSame($expected, $result);
+            Exception::toArray($exception)
+        );
     }
 
     /**
@@ -150,30 +156,28 @@ final class ExceptionTest extends \PHPUnit_Framework_TestCase
      */
     public function toArrayWithDepth()
     {
-        $first = new \Exception('first', 11);
-        $second = new \Exception('second', 22, $first);
-        $third = new \Exception('third', 33, $second);
-        $result = Exception::toArray($third, false, 2);
-
-        $expected = [
-            'type' => get_class($third),
-            'message' => $third->getMessage(),
-            'code' => $third->getCode(),
-            'file' => $third->getFile(),
-            'line' => $third->getLine(),
-            'trace' => $third->getTrace(),
-            'previous' => [
-                'type' => get_class($second),
-                'message' => $second->getMessage(),
-                'code' => $second->getCode(),
-                'file' => $second->getFile(),
-                'line' => $second->getLine(),
-                'trace' => $second->getTrace(),
-                'previous' => null,
+        $second = new BaseException('second', 22, new BaseException('first', 11));
+        $third = new BaseException('third', 33, $second);
+        $this->assertSame(
+            [
+                'type' => get_class($third),
+                'message' => $third->getMessage(),
+                'code' => $third->getCode(),
+                'file' => $third->getFile(),
+                'line' => $third->getLine(),
+                'trace' => $third->getTrace(),
+                'previous' => [
+                    'type' => get_class($second),
+                    'message' => $second->getMessage(),
+                    'code' => $second->getCode(),
+                    'file' => $second->getFile(),
+                    'line' => $second->getLine(),
+                    'trace' => $second->getTrace(),
+                    'previous' => null,
+                ],
             ],
-        ];
-
-        $this->assertSame($expected, $result);
+            Exception::toArray($third, false, 2)
+        );
     }
 
     /**

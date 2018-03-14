@@ -1,6 +1,7 @@
 <?php
 namespace Chadicus\Util;
 
+use ErrorException;
 use Throwable;
 
 /**
@@ -34,7 +35,7 @@ abstract class Exception
      *
      * @return bool false
      *
-     * @throws \ErrorException Thrown based on information given in parameters.
+     * @throws ErrorException Thrown based on information given in parameters.
      */
     final public static function raise(int $level, string $message, string $file = null, int $line = null)
     {
@@ -42,7 +43,7 @@ abstract class Exception
             return false;
         }
 
-        throw new \ErrorException($message, 0, $level, $file, $line);
+        throw new ErrorException($message, 0, $level, $file, $line);
     }
 
     /**
@@ -82,7 +83,7 @@ abstract class Exception
     {
         $error = error_get_last();
         if ($error !== null) {
-            return new \ErrorException($error['message'], 0, $error['type'], $error['file'], $error['line']);
+            return new ErrorException($error['message'], 0, $error['type'], $error['file'], $error['line']);
         }
     }
 }
