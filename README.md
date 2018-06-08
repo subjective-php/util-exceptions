@@ -12,7 +12,7 @@
 [![Daily Downloads](https://poser.pugx.org/subjective-php/util-exceptions/d/daily)](https://packagist.org/packages/subjective-php/util-exceptions)
 [![Monthly Downloads](https://poser.pugx.org/subjective-php/util-exceptions/d/monthly)](https://packagist.org/packages/subjective-php/util-exceptions)
 
-[![Documentation](https://img.shields.io/badge/reference-phpdoc-blue.svg?style=flat)](http://pholiophp.org/subjective-php/util-exceptions)
+[![Documentation](https://img.shields.io/badge/reference-phpdoc-blue.svg?style=flat)](http://www.pholiophp.org/subjective-php/util-exceptions)
 
 A collection of utility classes to work with PHP Exceptions
 
