@@ -16,9 +16,9 @@
         "symfony/yaml": ">=2.0.5"
     },
     "autoload": {
-        "psr-4": { "Chadicus\\Util\\": "src/" }
+        "psr-4": { "SubjectivePHP\\Util\\": "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "ChadicusTest\\Util\\": "tests/" }
+        "psr-4": { "SubjectivePHPTest\\Util\\": "tests/" }
     }
 }

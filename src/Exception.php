@@ -1,5 +1,6 @@
 <?php
-namespace Chadicus\Util;
+
+namespace SubjectivePHP\Util;
 
 use ErrorException;
 use Throwable;
