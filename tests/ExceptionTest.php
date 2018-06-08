@@ -1,7 +1,7 @@
 <?php
-namespace ChadicusTests\Util;
+namespace SubjectivePHPTests\Util;
 
-use Chadicus\Util\Exception;
+use SubjectivePHP\Util\Exception;
 use ErrorException;
 use Exception as BaseException;
 use InvalidArgumentException;
@@ -9,9 +9,9 @@ use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
 /**
- * Unit tests for the \Chadicus\Util\Exception class.
+ * Unit tests for the \SubjectivePHP\Util\Exception class.
  *
- * @coversDefaultClass \Chadicus\Util\Exception
+ * @coversDefaultClass \SubjectivePHP\Util\Exception
  */
 final class ExceptionTest extends TestCase
 {
@@ -58,7 +58,7 @@ final class ExceptionTest extends TestCase
      */
     public function raise()
     {
-        set_error_handler('\Chadicus\Util\Exception::raise');
+        set_error_handler('\SubjectivePHP\Util\Exception::raise');
         try {
             trigger_error('test', E_USER_NOTICE);
         } catch (\ErrorException $e) {
