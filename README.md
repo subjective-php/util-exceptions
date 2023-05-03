@@ -1,9 +1,5 @@
 # SubjectivePHP\Util\Exception
 
-[![Build Status](https://travis-ci.org/subjective-php/util-exceptions.svg?branch=master)](https://travis-ci.org/subjective-php/util-exceptions)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/subjective-php/util-exceptions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/subjective-php/util-exceptions/?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/subjective-php/util-exceptions/badge.svg?branch=master)](https://coveralls.io/github/subjective-php/util-exceptions?branch=master)
-
 [![Latest Stable Version](https://poser.pugx.org/subjective-php/util-exceptions/v/stable)](https://packagist.org/packages/subjective-php/util-exceptions)
 [![Latest Unstable Version](https://poser.pugx.org/subjective-php/util-exceptions/v/unstable)](https://packagist.org/packages/subjective-php/util-exceptions)
 [![License](https://poser.pugx.org/subjective-php/util-exceptions/license)](https://packagist.org/packages/subjective-php/util-exceptions)
