@@ -17,7 +17,7 @@ abstract class Exception
      *
      * @return Throwable
      */
-    final public static function getBaseException(Throwable $throwable) : Throwable
+    final public static function getBaseException(Throwable $throwable): Throwable
     {
         while ($throwable->getPrevious() !== null) {
             $throwable = $throwable->getPrevious();
@@ -56,7 +56,7 @@ abstract class Exception
      *
      * @return array
      */
-    final public static function toArray(Throwable $throwable, bool $traceAsString = false, int $depth = 512) : array
+    final public static function toArray(Throwable $throwable, bool $traceAsString = false, int $depth = 512): array
     {
         $result = [
             'type' => get_class($throwable),
