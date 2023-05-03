@@ -1,4 +1,5 @@
 <?php
+
 namespace SubjectivePHPTests\Util;
 
 use SubjectivePHP\Util\Exception;
